@@ -8,7 +8,7 @@ import (
 	"os"
 	"sort"
 	"strings"
-	
+
 	"github.com/urfave/cli"
 	"golang.org/x/xerrors"
 )
@@ -41,7 +41,6 @@ func mainAction(c *cli.Context) error {
 	var err error
 	filename := c.GlobalString("filename")
 	if filename != "" {
-		fmt.Println(filename)
 		// assume argument present
 		phrase, err = getPhraseFromFile(filename)
 	} else {
@@ -82,7 +81,6 @@ func getPhraseFromInteractive() (string, error) {
 	}
 	return phrase, nil
 }
-
 
 // getLetterCount counts the number of letters in a given string
 // returns in sorted order
