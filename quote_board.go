@@ -8,10 +8,15 @@ import (
 	"os"
 	"sort"
 	"strings"
-
+	
 	"github.com/urfave/cli"
 	"golang.org/x/xerrors"
 )
+
+type letterCount struct {
+	letter string
+	count  int
+}
 
 func main() {
 	app := cli.NewApp()
@@ -78,10 +83,6 @@ func getPhraseFromInteractive() (string, error) {
 	return phrase, nil
 }
 
-type letterCount struct {
-	letter string
-	count  int
-}
 
 // getLetterCount counts the number of letters in a given string
 // returns in sorted order
@@ -115,6 +116,7 @@ func cleanseString(input string) string {
 	return input
 }
 
+// printLetterCounts writes to writer
 func printLetterCounts(letterCounts []letterCount, writer io.Writer) {
 	for _, letterCount := range letterCounts {
 		s := fmt.Sprintf("%v : %v\n", letterCount.letter, letterCount.count)
