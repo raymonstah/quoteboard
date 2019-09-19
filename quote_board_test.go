@@ -40,5 +40,5 @@ func TestGetPhraseFromBadFile(t *testing.T) {
 	phrase, err := getPhraseFromFile(filename)
 	assert.NotNil(t, err)
 	assert.Empty(t, phrase)
-	assert.EqualError(t, err, "")
+	assert.EqualError(t, err, "open sample_files/idontexist: no such file or directory")
 }
